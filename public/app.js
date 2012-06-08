@@ -6990,27 +6990,25 @@ Flotr.addPlugin('titles', {
   return this.require.define;
 }).call(this)({
   "app": function(exports, require, module) {(function() {
-  var Graph;
+  var d1, d2, i;
 
-  Graph = (function() {
-    var i;
+  d1 = [[0, 3], [4, 8], [8, 5], [9, 13]];
 
-    Graph.prototype.d1 = [[0, 3], [4, 8], [8, 5], [9, 13]];
+  d2 = [
+    (function() {
+      var _results;
+      _results = [];
+      for (i = 0; i <= 14; i += 0.5) {
+        _results.push([i, Math.sin(i)]);
+      }
+      return _results;
+    })()
+  ];
 
-    Graph.prototype.d2 = [
-      (function() {
-        var _results;
-        _results = [];
-        for (i = 0; i <= 14; i += 0.5) {
-          _results.push([i, Math.sin(i)]);
-        }
-        return _results;
-      })()
-    ];
-
-    function Graph() {
+  module.exports = {
+    start: function() {
       var graph;
-      graph = Flotr.draw($('.graph')[0], [this.d1, this.d2], {
+      return graph = Flotr.draw(document.getElementById('graph'), [d1, d2], {
         lines: {
           steps: true,
           show: true
@@ -7030,12 +7028,7 @@ Flotr.addPlugin('titles', {
         }
       });
     }
-
-    return Graph;
-
-  })();
-
-  module.exports = Graph;
+  };
 
 }).call(this);
 }
