@@ -4,5 +4,5 @@
   "paths":["./src"],
   "cssPath":"app.css",
   "jsPath":"app.js",
-  "libs": ["lib/flotr2/flotr2.js"]
+  "libs": ["lib/flotr2.js"]
 }
