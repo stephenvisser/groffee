@@ -1,0 +1,8 @@
+{
+  "css":"./css",
+  "public":"./public",
+  "paths":["./src"],
+  "cssPath":"app.css",
+  "jsPath":"app.js",
+  "libs": []
+}
