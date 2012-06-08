@@ -6990,41 +6990,59 @@ Flotr.addPlugin('titles', {
   return this.require.define;
 }).call(this)({
   "app": function(exports, require, module) {(function() {
-  var d1, d2, i;
+  var d1, d2, d3, d4;
 
-  d1 = [[0, 3], [4, 8], [8, 5], [9, 13]];
+  d1 = [[0, 4]];
 
-  d2 = [
-    (function() {
-      var _results;
-      _results = [];
-      for (i = 0; i <= 14; i += 0.5) {
-        _results.push([i, Math.sin(i)]);
-      }
-      return _results;
-    })()
-  ];
+  d2 = [[0, 3]];
+
+  d3 = [[0, 1.03]];
+
+  d4 = [[0, 3.5]];
 
   module.exports = {
     start: function() {
       var graph;
-      return graph = Flotr.draw(document.getElementById('graph'), [d1, d2], {
-        lines: {
-          steps: true,
-          show: true
+      return graph = Flotr.draw(document.getElementById('graph'), [
+        {
+          data: d1,
+          label: 'Comedy'
+        }, {
+          data: d2,
+          label: 'Action'
+        }, {
+          data: d3,
+          label: 'Romance',
+          pie: {
+            explode: 50
+          }
+        }, {
+          data: d4,
+          label: 'Drama'
+        }
+      ], {
+        title: 'Dreams in Edmonton',
+        grid: {
+          verticalLines: false,
+          horizontalLines: false,
+          outline: ''
         },
         xaxis: {
-          minorTickFreq: 4
+          showLabels: false
         },
         yaxis: {
-          autoscale: true
+          showLabels: false
         },
-        grid: {
-          minorVerticalLines: true
+        pie: {
+          show: true,
+          explode: 6
         },
         mouse: {
-          track: true,
-          relative: true
+          track: true
+        },
+        legend: {
+          position: 'se',
+          backgroundColor: '#D2E8FF'
         }
       });
     }

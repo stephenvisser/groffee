@@ -1,21 +1,46 @@
-d1 = [[0, 3], [4, 8], [8, 5], [9, 13]] #First data series
+d1 = [[0, 4]]
+d2 = [[0, 3]]
+d3 = [[0, 1.03]]
+d4 = [[0, 3.5]]
 
-d2 = [[i, Math.sin(i)] for i in [0..14] by 0.5]
-
-module.exports = {
-  start: ->
-    # Draw Graph
-    graph = Flotr.draw document.getElementById('graph'), [d1, d2],
-      lines:
-        steps: true
-        show: true
-      xaxis:
-        minorTickFreq: 4
-      yaxis:
-        autoscale: true
+module.exports = start: ->
+  graph = Flotr.draw document.getElementById('graph'),
+    [
+      {
+      data : d1
+      label : 'Comedy'
+      }
+      {
+      data : d2
+      label : 'Action'
+      }
+      {
+      data : d3
+      label : 'Romance'
+      pie:
+        explode : 50
+      }
+      {
+      data : d4
+      label : 'Drama'
+      }
+    ]
+    {
+      title: 'Dreams in Edmonton'
       grid:
-        minorVerticalLines: true
-      mouse:
-        track: true
-        relative: true
-}
+        verticalLines : false
+        horizontalLines : false
+        outline: ''
+      xaxis :
+        showLabels : false
+      yaxis :
+        showLabels : false
+      pie :
+        show : true
+        explode : 6
+      mouse :
+        track : true
+      legend :
+        position : 'se'
+        backgroundColor : '#D2E8FF'
+    }
